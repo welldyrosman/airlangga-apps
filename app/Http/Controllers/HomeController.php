@@ -24,6 +24,7 @@ class HomeController extends Controller
      //   return "Data";
     }
     public function detailpack(Request $request,$id){
+        $user = Auth::user();
         $images=DB::table('travel_img as ti')
         ->leftJoin('image_bank as ib','ti.img_id','=','ib.id')
         ->where('travel_id',$id)
@@ -47,16 +48,22 @@ class HomeController extends Controller
              'packages'=>$packages,
              'cover'=>$imagecov,
              'facilities'=>$facilities,
-             'dates'=>$dates
+             'dates'=>$dates,
+             'user'=>$user
          );
         return view('pages/detailpack',$data);
     }
     public function bookpack(Request $request,$id){
-        $packages=DB::table('travel_pack')->where('id',$id)->first();
-        $data=array(
-         'packages'=>$packages
-        );
-        return view('pages/bookpack',$data);
+       
+        if (Auth::check()) {
+            $user = Auth::user();
+            $packages=DB::table('travel_pack')->where('id',$id)->first();
+            $data=array(
+             'packages'=>$packages
+            );
+            return view('pages/bookpack',$data);
+        }
+       
     }
     public function invoicedet(Request $request,$id){
         return view('pages/invoicedet');

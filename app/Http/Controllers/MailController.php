@@ -20,4 +20,14 @@ class MailController extends Controller
         dd("Email sudah terkirim.");
 
     }
+    public function mailtmp(){
+        $details = [
+            'title' => 'Mail from websitepercobaan.com',
+            'body' => 'This is for testing email using smtp'
+            ];
+        $data=[
+            'details'=>$details
+        ];
+        return view('mail/booking',$data);
+    }
 }

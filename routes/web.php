@@ -25,3 +25,5 @@ Route::get('/google/callback', [LoginController::class,'callback']);
 
 
 Route::get('/test/kirim-email',[MailController::class,'index']);
+
+Route::get('viewmmailtmp',[MailController::class,'mailtmp']);

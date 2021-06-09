@@ -32,7 +32,7 @@ class LoginController extends Controller
                 'password' => md5($oauthUser->token),
             ]);
             Auth::login($newUser);
-            return redirect('/home');
+            return redirect('/');
         }
     }
 }
