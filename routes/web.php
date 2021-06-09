@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,6 @@ Route::get('/invoicedet/{id}',[HomeController::class,'invoicedet']);
 
 Route::get('/google/redirect', [LoginController::class,'redirect']);
 Route::get('/google/callback', [LoginController::class,'callback']);
+
+
+Route::get('/test/kirim-email',[MailController::class,'index']);
