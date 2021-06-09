@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     public function index(){
-        //$id = Auth::id();
+        $user = Auth::user();
         $packages=DB ::select('select tp.*,ib.file_nm,ib.path from travel_pack tp
         left join travel_img ti on tp.id=ti.travel_id and iscover=1
         left join image_bank ib on ib.id=ti.img_id
@@ -16,7 +18,7 @@ class HomeController extends Controller
         $data=array(
            // 'welcome'=>$images,
             'packages'=>$packages,
-          //  'id'=>$id
+            'user'=>$user
         );
         return view('../pages/homeview',$data);
      //   return "Data";
@@ -48,5 +50,15 @@ class HomeController extends Controller
              'dates'=>$dates
          );
         return view('pages/detailpack',$data);
+    }
+    public function bookpack(Request $request,$id){
+        $packages=DB::table('travel_pack')->where('id',$id)->first();
+        $data=array(
+         'packages'=>$packages
+        );
+        return view('pages/bookpack',$data);
+    }
+    public function invoicedet(Request $request,$id){
+        return view('pages/invoicedet');
     }
 }

@@ -18,7 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 </head>
-<body class="hold-transition layout-top-nav">
+<body class="hold-transition layout-top-nav layout-navbar-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -31,13 +31,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </div>
   <!-- /.content-wrapper -->
 
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  @include('component.footer')
+  {{-- @include('component.footer') --}}
 </div>
 <!-- ./wrapper -->
 
@@ -50,6 +47,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset('assets/dist/js/demo.js')}}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

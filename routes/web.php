@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +16,8 @@ use App\Http\Controllers\HomeController;
 */
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/tourpackage/{id}', [HomeController::class, 'detailpack']);
+Route::get('/bookpackage/{id}', [HomeController::class, 'bookpack']);
+Route::get('/invoicedet/{id}',[HomeController::class,'invoicedet']);
+
+Route::get('/google/redirect', [LoginController::class,'redirect']);
+Route::get('/google/callback', [LoginController::class,'callback']);

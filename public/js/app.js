@@ -1842,6 +1842,10 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./tools */ "./resources/js/tools.js");
+
+__webpack_require__(/*! ./homeEvent */ "./resources/js/homeEvent.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -1872,6 +1876,45 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/homeEvent.js":
+/*!***********************************!*\
+  !*** ./resources/js/homeEvent.js ***!
+  \***********************************/
+/***/ (() => {
+
+$(function () {
+  $('#confirmbtn').click(function () {});
+  $('#packqty').keyup(function () {
+    $('#subtotprice').html('<small>IDR</small>' + addCommas(this.value * $('#packprice').val()));
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/tools.js":
+/*!*******************************!*\
+  !*** ./resources/js/tools.js ***!
+  \*******************************/
+/***/ (() => {
+
+$(function () {
+  addCommas = function addCommas(nStr) {
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+
+    while (rgx.test(x1)) {
+      x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+
+    return x1 + x2;
+  };
+});
 
 /***/ }),
 

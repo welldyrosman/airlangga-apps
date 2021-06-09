@@ -1,7 +1,25 @@
 .section-header{
-    background-color: #b1d7ff;
+    /* background-image: url('/assets/dist/img/banner.png'); */
     width: 100%;
     height: 300px;
+}
+.section-testimoni{
+    padding: 30px;
+    width: 100%;
+    height: 300px;
+    background: url(/../assets/dist/img/bg_banner.jpg)no-repeat;
+    background-size: cover;
+	background-position: center;
+    justify-content: center;
+    position: relative;
+}
+.section-footer{
+    background-color: #007bff;
+    width: 100%;
+    height: 300px;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    display: inline-table;
 }
 .pricesmall{
     font-size: 10px;
@@ -22,4 +40,16 @@
     height: 300px;
     width: auto;
     background-color: #007bff;
+}
+.linkfollow{
+    color: rgb(230, 228, 228);
+    cursor: pointer;
+}
+
+.linkfollow:hover{
+    color: white;
+}
+
+.aboutus{
+    padding-left: 30px;
 }

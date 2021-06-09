@@ -1,8 +1,8 @@
 @extends('app')
 @section('content')
-<br>    
+<br>
 <div class="container">
-        
+
         <div class="card card-success">
             <div class="card-body">
                 <div class="row">
@@ -35,7 +35,7 @@
                         <hr>
                         <div class="" align="right">
                             <h1 class="removebott"><small>IDR</small><strong> {{number_format($packages->price)}}</strong></h1>
-                            
+
                             <p class="removebott">PER PACK</p>
                             <div class="attachment-block clearfix text-left">
                                 <p><strong>Deskripsi</strong></p>
@@ -59,11 +59,17 @@
                                     @endforeach
                                 </div>
                                 <br>
-                                <a class="form-control btn btn-primary"><i class="fas fa-shopping-basket"></i> Booking</a>
+                                <a href="{{'/bookpackage/'.$packages->id}}" class="form-control btn btn-primary"><i class="fas fa-shopping-basket"></i> Booking</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <iframe class="embed-responsive-item" src="{{$packages->vid_url?$packages->vid_url:'https://www.youtube.com/embed/LI3uD9Yj-G8'}}" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <hr>
                 <h1>FAQ</h1>
                 <div class="row">
                     <div class="col-12" id="accordion">
@@ -203,8 +209,8 @@
                         </p>
                     </div>
                 </div>
-                
-              
+
+
             </div>
           </div>
     </div>
