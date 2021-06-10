@@ -54,16 +54,17 @@ class HomeController extends Controller
         return view('pages/detailpack',$data);
     }
     public function bookpack(Request $request,$id){
-       
+
         if (Auth::check()) {
             $user = Auth::user();
+            if($user->name==null || $user->phone_no==null){}
             $packages=DB::table('travel_pack')->where('id',$id)->first();
             $data=array(
              'packages'=>$packages
             );
             return view('pages/bookpack',$data);
         }
-       
+
     }
     public function invoicedet(Request $request,$id){
         return view('pages/invoicedet');
