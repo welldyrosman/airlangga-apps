@@ -16,7 +16,7 @@
             <div class="col-12">
                 <h4>
                 <img height="100px" src="{{asset('assets/dist/img/travel.png')}}"/> Airlangga Sejahtera Travel.
-                <small class="float-right">Date: 2/10/2014</small>
+                <small class="float-right">Book Date: {{$packages->book_time}}</small>
                 </h4>
             </div>
             <!-- /.col -->
@@ -37,17 +37,17 @@
             <div class="col-sm-4 invoice-col">
                 To
                 <address>
-                <strong>Welldy</strong><br>
-                <i class="fas fa-envelope-open-text"></i> Email: welldyrosman@gmail.com<br>
-                <i class="fas fa-phone"></i> Phone: (555) 539-1037<br>
+                <strong> {{$packages->name}}</strong><br>
+                <i class="fas fa-envelope-open-text"></i> Email: {{$packages->email}}<br>
+                <i class="fas fa-phone"></i> Phone: {{$packages->phone_no}}<br>
                 </address>
             </div>
             <!-- /.col -->
             <div class="col-sm-4 invoice-col">
-                <b>Booking No #007612</b><br>
-                <b>Package Order:</b> 4F3S8J- DUFAN<br>
-                <b>Travel Date:</b> 2/22/2014<br>
-                <b>Payment Due:</b> 2/22/2014<br>
+                <b>Booking No # {{$packages->book_no}}</b><br>
+                <b>Package Order:</b> [{{$packages->city}}]- {{$packages->pack_nm}}<br>
+                <b>Travel Date:</b> {{$packages->pack_date}}<br>
+                <b>Harga:  </b>IDR {{number_format($packages->price)}}<br>
             </div>
             <!-- /.col -->
             </div>
@@ -67,10 +67,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Call of Duty</td>
-                        <td>5 Pack</td>
-                        <td>2020/020</td>
-                        <td><p><small>IDR</small>50.000</p></td>
+                        <td>[{{$packages->city}}]-{{$packages->pack_nm}}</td>
+                        <td>{{$packages->pack_qty}} Pack</td>
+                        <td>{{$packages->pack_date}}</td>
+                        <td><p><small>IDR</small> {{number_format($packages->pack_qty*$packages->price)}}</p></td>
                     </tr>
                 </tbody>
                 </table>
@@ -83,10 +83,8 @@
             <!-- accepted payments column -->
             <div class="col-6">
                 <p class="lead">Aturan Pembayaran:</p>
-                <img src="{{asset('assets/dist/img/credit/visa.png')}}" alt="Visa">
-                <img src="{{asset('assets/dist/img/credit/mastercard.png')}}" alt="Mastercard">
-                <img src="{{asset('assets/dist/img/credit/american-express.png')}}" alt="American Express">
-                <img src="{{asset('assets/dist/img/credit/paypal2.png')}}" alt="Paypal">
+                <img src="{{asset('assets/dist/img/credit/bca.png')}}" height="50px" alt="Visa">
+                <img src="{{asset('assets/dist/img/credit/allin.jpg')}}"  height="50px" alt="Mastercard">
 
                 <ol class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
                <li>Melakukan pembayaran minimal 30% dari jumlah transaksi ke rekening:</li>
@@ -100,25 +98,25 @@
             </div>
             <!-- /.col -->
             <div class="col-6">
-                <p class="lead">Amount Due 2/22/2014</p>
+                <p class="lead">Amount Due {{date('Y-m-d', strtotime('-2 days', strtotime($packages->pack_date)))}}</p>
 
                 <div class="table-responsive">
                 <table class="table">
                     <tr>
                     <th style="width:50%">Subtotal:</th>
-                    <td>$250.30</td>
+                    <td><small>IDR</small> {{number_format($packages->pack_qty*$packages->price)}}</td>
                     </tr>
                     <tr>
                     <th>Discount</th>
-                    <td>$10.34</td>
+                    <td><small>IDR</small> {{number_format($packages->disc)}}</td>
                     </tr>
                     <tr>
                     <th>Total</th>
-                    <td><h5><small>IDR</small>340000</h5></td>
+                    <td><h5><small>IDR</small> {{number_format(($packages->pack_qty*$packages->price)-$packages->disc)}}</h5></td>
                     </tr>
                     <tr>
                     <th>Booking DP Min 30%:</th>
-                    <td><h5><small>min IDR</small>340000</h5></td>
+                    <td><h5><small>min IDR </small> {{number_format((($packages->pack_qty*$packages->price)-$packages->disc)*0.3)}}</h5></td>
                     </tr>
                 </table>
                 </div>
@@ -130,10 +128,9 @@
             <!-- this row will not appear when printing -->
             <div class="row no-print">
             <div class="col-12">
-                <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
-                <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
+                {{-- <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
                 Payment
-                </button>
+                </button> --}}
                 <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
                 <i class="fas fa-download"></i> Generate PDF
                 </button>

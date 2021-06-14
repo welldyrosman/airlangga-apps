@@ -64,12 +64,13 @@
                         </div>
                     </div>
                 </div>
+
+                <hr>
                 <div class="row">
                     <div class="col-12">
-                        <iframe class="embed-responsive-item" src="{{$packages->vid_url?$packages->vid_url:'https://www.youtube.com/embed/LI3uD9Yj-G8'}}" allowfullscreen></iframe>
+                        <iframe class="embed-responsive-item" height="500px" width="100%" src="{{$packages->vid_url?$packages->vid_url:'https://www.youtube.com/embed/LI3uD9Yj-G8'}}" allowfullscreen></iframe>
                     </div>
                 </div>
-                <hr>
                 <h1>FAQ</h1>
                 <div class="row">
                     <div class="col-12" id="accordion">

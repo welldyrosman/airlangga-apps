@@ -55,8 +55,6 @@
             </ul>
           </li>
         </ul>
-
-
       </div>
 
       <!-- Right navbar links -->
@@ -70,10 +68,16 @@
                 Login Member
                 @endif
             </a>
+            @if (Auth::check())
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              <li><a href="#" class="dropdown-item">Some action </a></li>
-              <li><a href="/google/redirect" class="dropdown-item">Google Login</a></li>
-            </ul>
+                <li><a href="#" class="dropdown-item"><i class="fas fa-columns"></i> Member Area</a></li>
+                <li><a href="/logout" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+              </ul>
+            @else
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                <li><a href="/google/redirect" class="dropdown-item"><i class="fab fa-google-plus-square"></i> Google Login</a></li>
+              </ul>
+            @endif
         </li>
       </ul>
     </div>

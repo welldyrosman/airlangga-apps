@@ -6,19 +6,32 @@
         <h1>Booking Tour</h1>
         <div class="row">
             <div class="col-md-8">
-                <form name="formbook">
-                    <label>Nama Paket</label>
+                <form name="formbook" id="formbook"  enctype="multipart/form-data">
+                    @csrf
+                    <label>Nama Paket {{$packages->id}}</label>
+                    <input type="hidden" id="pack_id" name="pack_id" value="{{$packages->id}}">
                     <input class="form-control" value="{{$packages->pack_nm}}" disabled>
                     <label>Harga Paket</label>
                     <input type="number" class="form-control" name="packprice" id="packprice" value="{{$packages->price}}" disabled>
                     <label>Jumlah Paket</label>
-                    <input type="number" name="packqty" id="packqty" class="form-control">
+                    <input type="number" name="QTY" id="QTY" class="form-control">
                     <label>Tanggal Paket</label>
-                    <select class="form-control">
-                        <option>21-01-2019</option>
+                    <select name="PACK_DATE" id="PACK_DATE" class="form-control">
+                        @foreach ($datelist as $dt)
+                            <option value="{{$dt->travel_date}}">{{$dt->travel_date}}</option>
+                        @endforeach
+
                     </select>
                     <hr>
-                    <a href="{{'/invoicedet/'.$packages->id}}" name="confirmbtn" id="confirmbtn" class="btn btn-primary">Konfirmasi Booking</a>
+                    <label>Nama</label>
+                    <input type="hidden" id="gid" name="gid" value="{{$user->google_id}}">
+                    <input class="form-control" id="uname" name="uname"  value="{{$user->name}}" >
+                    <label>Email</label>
+                    <input class="form-control" value="{{$user->email}}" disabled >
+                    <label>Nomer Telpon</label>
+                    <input class="form-control"  id="uphone" name="uphone"  value="{{$user->phone_no}}" >
+                    <hr>
+                    <button type="button" name="confirmbtn" id="confirmbtn" class="btn btn-primary">Konfirmasi Booking</a>
                 </form>
             </div>
             <div class="col-md-4">

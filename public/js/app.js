@@ -1886,8 +1886,34 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (() => {
 
 $(function () {
-  $('#confirmbtn').click(function () {});
-  $('#packqty').keyup(function () {
+  $('#confirmbtn').click(function () {
+    var obj = toolToObj($('#formbook'));
+    var tok = $('meta[name="csrf-token"]').attr('content');
+    var gid = tok.split('x').reverse().join() + 'Wr00bT,' + obj.gid + 'Wr00bT,' + tok.split('b').reverse().join();
+    var data = new FormData($('#formbook')[0]);
+    data["delete"]("gid");
+    data.append("gid", gid);
+    callService('/api/confirmbook', data, "POST").then(function (ret) {
+      document.location.ID = ret;
+      Swal.fire({
+        icon: 'success',
+        title: 'Tour Baru Berhasil Disimpan',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(function (result) {
+        var dt = JSON.parse(document.location.ID);
+        window.location = '/invoicedet/' + dt.ID;
+      });
+      $('#saveBtn').html('Simpan Data');
+    })["catch"](function (err) {
+      Swal.fire({
+        icon: 'error',
+        title: JSON.parse(err.responseText).message
+      });
+      $('#saveBtn').html('Simpan Data');
+    });
+  });
+  $('#QTY').keyup(function () {
     $('#subtotprice').html('<small>IDR</small>' + addCommas(this.value * $('#packprice').val()));
   });
 });
@@ -1913,6 +1939,50 @@ $(function () {
     }
 
     return x1 + x2;
+  };
+
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  toolToObj = function toolToObj($form) {
+    var unindexed_array = $form.serializeArray();
+    var indexed_array = {};
+    $.map(unindexed_array, function (n, i) {
+      indexed_array[n['name']] = n['value'];
+    });
+    return indexed_array;
+  };
+
+  toolToFormData = function toolToFormData(indexed_array) {
+    var form = new FormData();
+
+    for (var key in indexed_array) {
+      form.append(key, indexed_array[key]);
+    }
+
+    return form;
+  };
+
+  callService = function callService(url, data, method) {
+    return new Promise(function (resolve, reject) {
+      $.ajax({
+        data: data,
+        url: url,
+        type: method,
+        processData: false,
+        mimeType: "multipart/form-data",
+        contentType: false,
+        success: function success(ret) {
+          resolve(ret);
+        },
+        error: function error(_error) {
+          reject(_error);
+        }
+      });
+    });
   };
 });
 

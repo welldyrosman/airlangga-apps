@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,10 @@ Route::get('/google/callback', [LoginController::class,'callback']);
 
 Route::get('/test/kirim-email',[MailController::class,'index']);
 
-Route::get('viewmmailtmp',[MailController::class,'mailtmp']);
+Route::get('/viewmmailtmp',[MailController::class,'mailtmp']);
+
+Route::get('/bookpdf/{id}',[PDFController::class,'bookingpdf']);
+
+Route::get('/logout',[HomeController::class,'logout']);
+
+Route::get('/loginPage',[HomeController::class,'loginPage']);
