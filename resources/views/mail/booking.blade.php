@@ -30,19 +30,24 @@
                         </tr>
                         <tr>
                             <td style="padding:30px;background-color:#ffffff;">
-                                <h1 style="margin-top:0;margin-bottom:16px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">Hi! Welldy</h1>
-                                <p style="margin:0;">Terima kasih telah mepercayakan Tour/Travel anda kepada kami, 
+                                <h1 style="margin-top:0;margin-bottom:16px;font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">Hi! {{$details->name}}</h1>
+                                <p style="margin:0;">Terima kasih telah mepercayakan Tour/Travel anda kepada kami,
                                    kami akan berusaha sebaik mungkin untuk membuat perjalanan anda berjalan dengan baik,</p>
-                                
+
                             </td>
                         </tr>
                         <tr>
                             <td style="padding:30px;background-color:#ffffff;">
                                <p style="margin:0;">Berikut ini kami sampaikan kode booking untuk perjalanan kamu:</p>
-                               <h1>AT8909998001</h1>
+                               <h1>{{$details->book_no}}</h1>
                                <p>Segera lakukan pembayaran minimal 30% dari total jumlah biaya perjalanan,di lakukan maksimal 2 hari dari tanggal booking
                                    ,dan lakukan konfirmasi setalah melakukan pembayaran</p>
-                               <p>Detail Invoice bisa di unduh pada lampiran email ini.</p>
+                               <p>Klik Button dibawah ini untuk detail pesarana anda.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:30px;background-color:#ffffff;">
+                              <a href="{{URL::to('/bookpdf/'.$details->id)}}">Cek Pesanan Anda</a>
                             </td>
                         </tr>
                         <tr>

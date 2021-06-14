@@ -131,9 +131,9 @@
                 {{-- <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
                 Payment
                 </button> --}}
-                <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+                <a href="{{'/bookpdf/'.$packages->id}}" target="_blank" type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
                 <i class="fas fa-download"></i> Generate PDF
-                </button>
+                </a>
             </div>
             </div>
         </div>

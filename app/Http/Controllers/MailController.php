@@ -5,28 +5,34 @@ namespace App\Http\Controllers;
 use App\Mail\MyTestMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use stdClass;
 
 class MailController extends Controller
 {
-    public function index(){
-
-        $details = [
-        'title' => 'Mail from websitepercobaan.com',
-        'body' => 'This is for testing email using smtp'
-        ];
-
-        Mail::to('welldyrosman@gmail.com')->send(new MyTestMail($details));
-
-        dd("Email sudah terkirim.");
+    public function sendMail($name,$bookno,$email,$id){
+        $details = array(
+            'name' => $name,
+            'book_no' => $bookno
+        );
+        $data= new stdClass;
+        $data->name=$name;
+        $data->book_no=$bookno;
+        $data->id=$id;
+        //  (
+        //     'name' => $name,
+        //     'book_no' => $bookno
+        // );
+        Mail::to($email)->send(new MyTestMail($data));
+       // dd("Email sudah terkirim.");
 
     }
-    public function mailtmp(){
+    public function mailtmp($name,$bookno){
         $details = [
-            'title' => 'Mail from websitepercobaan.com',
-            'body' => 'This is for testing email using smtp'
+            'name' => $name,
+            'book_no' => $bookno
             ];
         $data=[
-            'details'=>$details
+            'packages'=>$details
         ];
         return view('mail/booking',$data);
     }

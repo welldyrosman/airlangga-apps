@@ -10,7 +10,7 @@ use Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class HomeController extends MailController
 {
 
 
@@ -125,6 +125,7 @@ class HomeController extends Controller
             $bookNo='AST-'.str_pad($idpack, 3, "0", STR_PAD_LEFT).Carbon::now()->format('Ymd').str_pad($idbook, 5, "0", STR_PAD_LEFT);
             DB::table('travel_book')->where('id',$idbook)->update(['book_no'=>$bookNo]);
             DB::commit();
+            $this->sendMail($user->name,$bookNo,$user->email,$idbook);
         }catch(Exception $e){
             DB::rollback();
             throw $e;
@@ -141,7 +142,7 @@ class HomeController extends Controller
         $packages=DB::table('travel_book as b')
         ->join('travel_pack as p','b.pack_id','=','p.id')
         ->join('users as u','u.google_id','=','b.member_id')
-        ->select('b.*','p.pack_nm','p.city','u.*')
+        ->select('b.*','p.pack_nm','p.city','u.name','u.email','u.phone_no')
         ->where('b.id',$id)->first();
         $user = Auth::user();
         $data=array(

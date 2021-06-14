@@ -16,7 +16,7 @@ class PDFController extends Controller
         $packages=DB::table('travel_book as b')
         ->join('travel_pack as p','b.pack_id','=','p.id')
         ->join('users as u','u.google_id','=','b.member_id')
-        ->select('b.*','p.pack_nm','p.city','u.*')
+        ->select('b.*','p.pack_nm','p.city','u.name','u.email','u.phone_no')
         ->where('b.id',$id)->first();
         $pdf = new FPDF('P','mm','A4');
         $pdf->AddPage();
