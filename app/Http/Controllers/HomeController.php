@@ -29,6 +29,13 @@ class HomeController extends MailController
         return view('../pages/homeview',$data);
      //   return "Data";
     }
+    public function memberArea(){
+        $user = Auth::user();
+        $data=array(
+             'user'=>$user
+         );
+        return view('pages/memberArea',$data);
+    }
     public function detailpack(Request $request,$id){
         $user = Auth::user();
         $images=DB::table('travel_img as ti')

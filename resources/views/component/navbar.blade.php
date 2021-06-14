@@ -70,7 +70,7 @@
             </a>
             @if (Auth::check())
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                <li><a href="#" class="dropdown-item"><i class="fas fa-columns"></i> Member Area</a></li>
+                <li><a href="/member-area" class="dropdown-item"><i class="fas fa-columns"></i> Member Area</a></li>
                 <li><a href="/logout" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
               </ul>
             @else

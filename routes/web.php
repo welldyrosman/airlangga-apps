@@ -34,3 +34,5 @@ Route::get('/bookpdf/{id}',[PDFController::class,'bookingpdf']);
 Route::get('/logout',[HomeController::class,'logout']);
 
 Route::get('/loginPage',[HomeController::class,'loginPage']);
+
+Route::get('/member-area',[HomeController::class,'memberArea']);
