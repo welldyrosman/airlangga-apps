@@ -133,7 +133,21 @@
             <a class="float-right" href="">Lihat Lebih Banyak Lagi  <i class="fas fa-long-arrow-alt-right"></i></a>
         </div>
 
-        <div class="section ownerprof">
+        <div class="section videogallery">
+            <h3>Gallery Video Kami</h3>
+            <hr>
+            <div class="row">
+                @for ($i = 0; $i < 3; $i++)
+                    <div class="col-sm-4">
+                        <div class="ratio ratio-4x3">
+                            <iframe src="https://www.youtube.com/embed/GQv0odo9UWs" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
+                        </div>
+                    </div>
+                @endfor
+            </div>
+            <br>
+            <a class="float-right" href="">Lihat Semua Video Kami  <i class="fas fa-long-arrow-alt-right"></i></a>
+            <br>
         </div>
 
         <div class="section">
@@ -181,7 +195,9 @@
             <div class="row">
                 @for ($i = 0; $i < 9; $i++)
                 <div class="col-sm-4 gallerybox">
-                    <img src={{ asset('assets/dist/img/gallery/gallery-01.png') }} class="img-fluid">
+                    <a href="{{ asset('assets/dist/img/gallery/gallery-01.png') }}" data-toggle="lightbox" data-gallery="gallery">
+                        <img src="{{ asset('assets/dist/img/gallery/gallery-01.png') }}"  class="img-fluid gallery-img mb-2">
+                    </a>
                 </div>
                 @endfor
             </div>
@@ -228,6 +244,20 @@
         </div>
         <br>
         <br>
+    </div>
+    <div class="section-team text-center">
+        <h1>Testimoni</h1>
+        <br>
+        <div class="row">
+            @for ($i = 0; $i < 6; $i++)
+                <div class="col-sm-2">
+                    <img class="profile-user-img img-fluid img-circle" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
+                    <h3>Ghani</h3>
+                    <small>Owner Airlangga Sejahtera</small>
+                </div>
+            @endfor
+
+        </div>
     </div>
     </div>
     <div class="section-footer">
