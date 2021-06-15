@@ -145,6 +145,19 @@ class HomeController extends MailController
         $request->session()->regenerateToken();
         return redirect('/');
     }
+    public function getalltrip(){
+        $user = Auth::user();
+        $packages=DB ::select('select tp.*,ib.file_nm,ib.path from travel_pack tp
+            left join travel_img ti on tp.id=ti.travel_id and iscover=1
+            left join image_bank ib on ib.id=ti.img_id
+            where tp.use_mk=1
+        ;');
+        $data=array(
+            'packages'=>$packages,
+            'user'=>$user,
+           );
+        return view('pages/allTravel',$data);
+    }
     public function invoicedet(Request $request,$id){
         $packages=DB::table('travel_book as b')
         ->join('travel_pack as p','b.pack_id','=','p.id')

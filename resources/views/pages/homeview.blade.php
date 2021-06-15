@@ -1,10 +1,50 @@
 @extends('app')
 @section('content')
-    <img src="{{ asset('assets/dist/img/banner.png')}}" width="100%" class="img-fluid"/>
+    {{-- <img src="{{ asset('assets/dist/img/banner.png')}}" width="100%" class="img-fluid"/> --}}
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{{asset('assets/dist/img/banner/banner-01.png')}}" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <img src="{{ asset('assets/dist/img/logo.png')}}" width="300px" />
+                <br><br>
+                <h3>Airlangga Sejahtera Group merupakan perusahaan yang bergerak di bidang penyelenggara perjalanan wisata dan jasa Photo Studio</h3>
 
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{asset('assets/dist/img/banner/banner-02.png')}}" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Hallo Gais</h5>
+                <p>Hllo Kawan Kawan ku semua</p>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{asset('assets/dist/img/banner/banner-03.png')}}" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+
+                <h5>Hallo Gais</h5>
+                <p>Hllo Kawan Kawan ku semua</p>
+              </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
     <div class="container">
 
-        <div class="row" style="margin-top:-200px">
+        {{-- <div class="row" style="margin-top:100px">
             <div class="col-md-12 text-center">
                 <img src="{{ asset('assets/dist/img/logo.png')}}" width="200px" />
                 <p></p><br>
@@ -51,14 +91,14 @@
             </div>
             <div class="col"></div>
 
-        </div>
+        </div> --}}
         <br>
         <div class="section">
             <h3>Tour and Travel</h3>
             <div class="row">
             @foreach ($packages as $pack)
                 <div class="col-md-3">
-                <div class="card ">
+                <div class="card">
                     <div class="card-header">
                         <div class="ribbon-wrapper ribbon-lg">
                             <div class="ribbon bg-success text-lg">
@@ -92,8 +132,10 @@
             </div>
             <a class="float-right" href="">Lihat Lebih Banyak Lagi  <i class="fas fa-long-arrow-alt-right"></i></a>
         </div>
+
         <div class="section ownerprof">
         </div>
+
         <div class="section">
             <div class="row">
                 <div class="col-sm-12 text-center">
@@ -118,24 +160,75 @@
 
             </div>
         </div>
-        <div class="section-testimoni text-center">
-            <h1>Our Professional Team</h1>
+    </div>
+    <div class="section-team text-center">
+        <h1>Our Professional Team</h1>
+        <br>
+        <div class="row">
+            @for ($i = 0; $i < 6; $i++)
+                <div class="col-sm-2">
+                    <img class="profile-user-img img-fluid img-circle" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
+                    <h3>Ghani</h3>
+                    <small>Owner Airlangga Sejahtera</small>
+                </div>
+            @endfor
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="section-gallery">
+            <h1> Airlanga Travel Gallery</h1>
             <div class="row">
-                <div class="col-sm-3">
-                    <div class="card card-body">
-                        <img class="profile-user-img img-fluid img-circle" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
+                @for ($i = 0; $i < 9; $i++)
+                <div class="col-sm-4 gallerybox">
+                    <img src={{ asset('assets/dist/img/gallery/gallery-01.png') }} class="img-fluid">
+                </div>
+                @endfor
+            </div>
+            <a class="float-right" href="">Lihat Lebih Banyak Lagi  <i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+        <div class="section">
+            <h3>Photo Studio</h3>
+            <div class="row">
+            @foreach ($packages as $pack)
+                <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="ribbon-wrapper ribbon-lg">
+                            <div class="ribbon bg-success text-lg">
+                            Hot Pack
+                            </div>
+                        </div>
+                    <img src="{{'//localhost:3002/storage/'.$pack->path.'/'.$pack->file_nm}}" class="img-fluid" alt="package-place">
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div  class="col-sm-5">
+                                <p class="removebott">{{$pack->pack_nm}}</p>
+                                <p class="text-xs removebott"><i class="fas fa-map-marker-alt"></i> {{$pack->city}}</p>
+                                <p class="text-muted removebott" style="font-size: 10px">(360 pack Terjual)</p>
+                            </div>
+                            <div  class="col-sm-7" align="right">
+                                <p class="removebott"><small class="text-muted pricesmall">IDR</small> <strong>{{number_format($pack->price)}}</strong></p>
+                                <p class="text-muted pricesmall removebott">per pack</p>
+                                <p class="text-muted pricesmall removebott">Termasuk 8 Fasilitas</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <p class="text-xs text-justify">{{substr($pack->pack_desc,0,150)}}...</p>
+                        </div>
+                        <div class="card-footer">
+                        <a href="{{'/tourpackage/'.$pack->id}}" class="btn btn-sm btn-primary float-right">Lihat Detail</a>
                     </div>
                 </div>
-                <div class="col-4">
-s
                 </div>
-                <div class="col-4">
-s
-                </div>
+            @endforeach
             </div>
+            <a class="float-right" href="">Lihat Lebih Banyak Lagi  <i class="fas fa-long-arrow-alt-right"></i></a>
         </div>
         <br>
         <br>
+    </div>
     </div>
     <div class="section-footer">
         <div class="row">

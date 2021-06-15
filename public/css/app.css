@@ -21,6 +21,21 @@
     padding-bottom: 30px;
     display: inline-table;
 }
+.gallerybox{
+    margin-bottom: 10px;
+}
+.section-team{
+    background-color: #007bff;
+    width: 100%;
+    padding: 60px;
+    padding-bottom: 80px;
+    display: inline-table;
+    color: white;
+    margin-bottom: 30px;
+}
+.section-team small{
+    color: rgb(224, 220, 220);
+}
 .pricesmall{
     font-size: 10px;
 }
