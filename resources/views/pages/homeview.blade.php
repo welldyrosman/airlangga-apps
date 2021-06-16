@@ -41,7 +41,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>
+    </div>
     <div class="container">
 
         {{-- <div class="row" style="margin-top:100px">
@@ -244,21 +244,24 @@
         </div>
         <br>
         <br>
+
     </div>
-    <div class="section-team text-center">
-        <h1>Testimoni</h1>
+
+    <div class="section-team testi text-center">
+        <h1><i class="fas fa-comment"></i> Testimoni</h1>
         <br>
         <div class="row">
-            @for ($i = 0; $i < 6; $i++)
-                <div class="col-sm-2">
-                    <img class="profile-user-img img-fluid img-circle" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
-                    <h3>Ghani</h3>
-                    <small>Owner Airlangga Sejahtera</small>
+            @for ($i = 0; $i < 4; $i++)
+                <div class="col-sm-3">
+                    <div class="cardtesti">
+                        <img class="profile-user-img img-fluid img-circle" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
+                        <p><strong>Welldy</strong></p>
+                        <p class="text-justify">"Wah Asik Banget ngadain trip bareng Arilangga Tour, Guidenya ramah , Harganya Bersaing, pokoknya nyaman banget deh! :-D"</p>
+                    </div>
                 </div>
             @endfor
 
         </div>
-    </div>
     </div>
     <div class="section-footer">
         <div class="row">

@@ -57,6 +57,16 @@
     color:white;
     background-color: #007bff;
 }
+.cardtesti{
+    border: 1px solid grey;
+    padding: 30px;
+    color: grey;
+    margin-top: 10px;
+}
+.testi{
+    color: black;
+    background-color: white;
+}
 .videogallery a{
     color: white;
 }

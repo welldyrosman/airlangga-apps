@@ -30,11 +30,18 @@ class HomeController extends MailController
      //   return "Data";
     }
     public function memberArea(){
-        $user = Auth::user();
-        $data=array(
-             'user'=>$user
-         );
-        return view('pages/memberArea',$data);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $packages=DB::table('travel_book')->where('member_id',$user->google_id )->get();
+            $data=array(
+                 'user'=>$user,
+                 'packages'=>$packages
+             );
+            return  view('pages/memberArea',$data);
+        }else{
+            return view('pages/loginpage');
+        }
+
     }
     public function detailpack(Request $request,$id){
         $user = Auth::user();
@@ -67,7 +74,6 @@ class HomeController extends MailController
         return view('pages/detailpack',$data);
     }
     public function bookpack(Request $request,$id){
-
         if (Auth::check()) {
             $user = Auth::user();
             if($user->name==null || $user->phone_no==null){}
