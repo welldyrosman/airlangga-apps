@@ -130,7 +130,7 @@
                 </div>
             @endforeach
             </div>
-            <a class="float-right" href="">Lihat Lebih Banyak Lagi  <i class="fas fa-long-arrow-alt-right"></i></a>
+            <a class="float-right" href="/alltravel">Lihat Lebih Banyak Lagi  <i class="fas fa-long-arrow-alt-right"></i></a>
         </div>
 
         <div class="section videogallery">

@@ -13,13 +13,10 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="index3.html')}}" class="nav-link">Home</a>
+            <a href="/" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Cek Booking</a>
           </li>
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Produk Kami</a>

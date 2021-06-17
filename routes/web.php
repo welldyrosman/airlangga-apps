@@ -36,3 +36,5 @@ Route::get('/logout',[HomeController::class,'logout']);
 Route::get('/loginPage',[HomeController::class,'loginPage']);
 
 Route::get('/member-area',[HomeController::class,'memberArea']);
+
+Route::get('/alltravel',[HomeController::class,'alltravel']);

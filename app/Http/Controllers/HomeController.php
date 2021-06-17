@@ -29,6 +29,20 @@ class HomeController extends MailController
         return view('../pages/homeview',$data);
      //   return "Data";
     }
+    public function alltravel(){
+        $user = Auth::user();
+        $packages=DB ::select('select tp.*,ib.file_nm,ib.path from travel_pack tp
+        left join travel_img ti on tp.id=ti.travel_id and iscover=1
+        left join image_bank ib on ib.id=ti.img_id
+        where tp.use_mk=1
+        ;');
+        $data=array(
+           // 'welcome'=>$images,
+            'packages'=>$packages,
+            'user'=>$user
+        );
+        return view('../pages/allTravel',$data);
+    }
     public function memberArea(){
         if (Auth::check()) {
             $user = Auth::user();
