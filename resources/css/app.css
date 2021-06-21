@@ -85,3 +85,51 @@
 .aboutus{
     padding-left: 30px;
 }
+
+
+
+.profteam{
+    background-color: #333;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+
+  div.scrollmenu::-webkit-scrollbar {
+    width: 100px;
+    height: 10px;             /* width of the entire scrollbar */
+  }
+  div.scrollmenu::-webkit-scrollbar-track {
+    background: #333;        /* color of the tracking area */
+  }
+
+  div.scrollmenu::-webkit-scrollbar-thumb {
+    background-color: transparent;    /* color of the scroll thumb */
+    border-radius: 20px;      /* creates padding around scroll thumb */
+  }
+  div.scrollmenu::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.26);    /* color of the scroll thumb */
+    border-radius: 20px;      /* creates padding around scroll thumb */
+  }
+  .conprof{
+      border: 1px solid lightgray;
+      margin-left: 10px;
+  }
+
+  div.scrollmenu .conprof {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 34px;
+    text-decoration: none;
+  }
+
+  div.scrollmenu .conprof:hover {
+    background-color: #777;
+  }

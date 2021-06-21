@@ -175,20 +175,21 @@
             </div>
         </div>
     </div>
-    <div class="section-team text-center">
+    <div class="profteam text-center">
         <h1>Our Professional Team</h1>
-        <br>
-        <div class="row">
-            @for ($i = 0; $i < 6; $i++)
-                <div class="col-sm-2">
-                    <img class="profile-user-img img-fluid img-circle" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
-                    <h3>Ghani</h3>
-                    <small>Owner Airlangga Sejahtera</small>
-                </div>
+        <div class="scrollmenu">
+            @for ($i = 0; $i < 12; $i++)
+            <div class="conprof">
+                <img class="profile-user-img img-fluid img-circle" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
+                <h4>Ghani</h4>
+                <h6>Abdul Ghani Aprizal</h6>
+                <h6 class="text-muted"><i class="fab fa-instagram"></i> aisjsj</h6>
+                <small>Owner Airlangga Sejahtera</small>
+            </div>
             @endfor
-
         </div>
     </div>
+
     <div class="container">
         <div class="section-gallery">
             <h1> Airlanga Travel Gallery</h1>
