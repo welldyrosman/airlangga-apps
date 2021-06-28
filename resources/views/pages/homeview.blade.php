@@ -3,35 +3,21 @@
     {{-- <img src="{{ asset('assets/dist/img/banner.png')}}" width="100%" class="img-fluid"/> --}}
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            @foreach ($slides as $s)
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{$loop->index}}" class="{{$loop->iteration==1?'active':''}}"></li>
+            @endforeach
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="{{asset('assets/dist/img/banner/banner-01.png')}}" alt="First slide">
-            <div class="carousel-caption d-none d-md-block">
-                <img src="{{ asset('assets/dist/img/logo.png')}}" width="300px" />
-                <br><br>
-                <h3>Airlangga Sejahtera Group merupakan perusahaan yang bergerak di bidang penyelenggara perjalanan wisata dan jasa Photo Studio</h3>
-
+            @foreach ($slides as $sl)
+            <div class="{{'carousel-item '.($loop->iteration==1?'active':'')}}">
+                <img class="d-block w-100" src="{{'//localhost:3002/storage/'.$sl->photo_path.'/'.$sl->photo}}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <br><br>
+                    <h2>{{$sl->slide_nm}}</h2>
+                    <h3>{{$sl->slide_desc}}</h3>
+                  </div>
               </div>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{{asset('assets/dist/img/banner/banner-02.png')}}" alt="Second slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Hallo Gais</h5>
-                <p>Hllo Kawan Kawan ku semua</p>
-              </div>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{{asset('assets/dist/img/banner/banner-03.png')}}" alt="Third slide">
-            <div class="carousel-caption d-none d-md-block">
-
-                <h5>Hallo Gais</h5>
-                <p>Hllo Kawan Kawan ku semua</p>
-              </div>
-          </div>
+            @endforeach
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -121,7 +107,7 @@
                             </div>
                         </div>
                         <hr>
-                        <p class="text-xs text-justify">{{substr($pack->pack_desc,0,150)}}...</p>
+                        {{-- <p class="text-xs text-justify">{{str_pad(substr($pack->pack_desc,0,150),150,' ')}}...</p> --}}
                         </div>
                         <div class="card-footer">
                         <a href="{{'/tourpackage/'.$pack->id}}" class="btn btn-sm btn-primary float-right">Lihat Detail</a>
@@ -137,16 +123,16 @@
             <h3>Gallery Video Kami</h3>
             <hr>
             <div class="row">
-                @for ($i = 0; $i < 3; $i++)
+                @foreach ($videos as $vid)
                     <div class="col-sm-4">
                         <div class="ratio ratio-4x3">
-                            <iframe src="https://www.youtube.com/embed/GQv0odo9UWs" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
+                            <iframe src="{{$vid->video_url}}" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
             <br>
-            <a class="float-right" href="">Lihat Semua Video Kami  <i class="fas fa-long-arrow-alt-right"></i></a>
+            <a class="float-right" href="/allvideos">Lihat Semua Video Kami  <i class="fas fa-long-arrow-alt-right"></i></a>
             <br>
         </div>
 

@@ -1,6 +1,11 @@
 @extends('app')
 @section('content')
 <div class="container">
+    <br>
+    <div class="text-center">
+        <img  height="200px" src="{{asset('assets/dist/img/travel.png')}}">
+    </div>
+    <hr>
     <div class="row">
         @foreach ($packages as $pack)
         <div class="col-md-3">
@@ -27,7 +32,7 @@
                         </div>
                     </div>
                     <hr>
-                    <p class="text-xs text-justify">{{substr($pack->pack_desc,0,150)}}...</p>
+                    {{-- <p class="text-xs text-justify">{{substr($pack->pack_desc,0,150)}}...</p> --}}
                     </div>
                     <div class="card-footer">
                     <a href="{{'/tourpackage/'.$pack->id}}" class="btn btn-sm btn-primary float-right">Lihat Detail</a>

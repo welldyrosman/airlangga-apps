@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
@@ -16,18 +16,32 @@ class HomeController extends MailController
 
     public function index(){
         $user = Auth::user();
-        $packages=DB ::select('select tp.*,ib.file_nm,ib.path from travel_pack tp
+        $slides=DB::table('slide')->where('stop_mk','0')->get();
+        $packages=DB::select('select tp.*,ib.file_nm,ib.path from travel_pack tp
         left join travel_img ti on tp.id=ti.travel_id and iscover=1
         left join image_bank ib on ib.id=ti.img_id
-        where tp.use_mk=1
+        where tp.use_mk=1  ORDER BY tp.seq asc LIMIT 4
         ;');
+        $videos=DB::table('gallery_video')->get();
+        $data=array(
+           // 'welcome'=>$images,
+            'videos'=>$videos,
+            'packages'=>$packages,
+            'slides'=>$slides,
+            'user'=>$user
+        );
+        return view('../pages/homeview',$data);
+     //   return "Data";
+    }
+    public function allvideos(){
+        $user = Auth::user();
+        $packages=DB ::table('gallery_video')->get();
         $data=array(
            // 'welcome'=>$images,
             'packages'=>$packages,
             'user'=>$user
         );
-        return view('../pages/homeview',$data);
-     //   return "Data";
+        return view('../pages/allVideo',$data);
     }
     public function alltravel(){
         $user = Auth::user();

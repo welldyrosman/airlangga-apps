@@ -38,3 +38,5 @@ Route::get('/loginPage',[HomeController::class,'loginPage']);
 Route::get('/member-area',[HomeController::class,'memberArea']);
 
 Route::get('/alltravel',[HomeController::class,'alltravel']);
+
+Route::get('/allvideos',[HomeController::class,'allvideos']);
