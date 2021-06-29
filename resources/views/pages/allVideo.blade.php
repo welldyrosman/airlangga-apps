@@ -3,7 +3,7 @@
 <div class="container">
     <br>
     <div class="text-center">
-        <img  width="170px" src="{{asset('assets/dist/img/logo.png')}}">
+        <img  width="270px" src="{{asset('assets/dist/img/logo.png')}}">
     </div>
     <hr>
     <div class="row">
@@ -11,8 +11,9 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">
-                        <iframe src="{{$vid->video_url}}" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
-
+                    <div class="ratio ratio-4x3">
+                        <iframe src="{{$vid->video_url}}" style="width: -webkit-fill-available" frameborder="0"  title="YouTube video player" allowfullscreen></iframe>
+                    </div>
                 </div>
                     <div class="card-body">
                         <p><strong>{{$vid->video_nm}}</strong></p>

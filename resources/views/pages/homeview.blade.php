@@ -80,7 +80,7 @@
         </div> --}}
         <br>
         <div class="section">
-            <h3>Tour and Travel</h3>
+            <h1>Tour and Travel</h1>
             <div class="row">
             @foreach ($packages as $pack)
                 <div class="col-md-3">
@@ -126,7 +126,7 @@
                 @foreach ($videos as $vid)
                     <div class="col-sm-4">
                         <div class="ratio ratio-4x3">
-                            <iframe src="{{$vid->video_url}}" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
+                            <iframe src="{{$vid->video_url}}" style="width: -webkit-fill-available" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
                         </div>
                     </div>
                 @endforeach
@@ -164,34 +164,39 @@
     <div class="profteam text-center">
         <h1>Our Professional Team</h1>
         <div class="scrollmenu">
-            @for ($i = 0; $i < 12; $i++)
+            @foreach ($teams as $team)
             <div class="conprof">
                 <img class="profile-user-img img-fluid img-circle" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
-                <h4>Ghani</h4>
-                <h6>Abdul Ghani Aprizal</h6>
-                <h6 class="text-muted"><i class="fab fa-instagram"></i> aisjsj</h6>
-                <small>Owner Airlangga Sejahtera</small>
+                <h4>{{$team->nickname}}</h4>
+                <h6>{{$team->fullname}}</h6>
+                <h6 class="text-primary"><i class="fab fa-instagram"></i> {{$team->ig}}</h6>
+                <small>{{$team->position}}</small>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 
     <div class="container">
+        <br>
         <div class="section-gallery">
             <h1> Airlanga Travel Gallery</h1>
+            <hr>
             <div class="row">
-                @for ($i = 0; $i < 9; $i++)
+                @foreach ($galleries as $gal)
                 <div class="col-sm-4 gallerybox">
                     <a href="{{ asset('assets/dist/img/gallery/gallery-01.png') }}" data-toggle="lightbox" data-gallery="gallery">
                         <img src="{{ asset('assets/dist/img/gallery/gallery-01.png') }}"  class="img-fluid gallery-img mb-2">
                     </a>
                 </div>
-                @endfor
+                @endforeach
             </div>
             <a class="float-right" href="">Lihat Lebih Banyak Lagi  <i class="fas fa-long-arrow-alt-right"></i></a>
         </div>
+        <br>
+        <br>
         <div class="section">
-            <h3>Photo Studio</h3>
+            <h1>Photo Studio</h1>
+            <hr>
             <div class="row">
             @foreach ($packages as $pack)
                 <div class="col-md-3">

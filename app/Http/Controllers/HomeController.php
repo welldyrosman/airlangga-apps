@@ -22,13 +22,17 @@ class HomeController extends MailController
         left join image_bank ib on ib.id=ti.img_id
         where tp.use_mk=1  ORDER BY tp.seq asc LIMIT 4
         ;');
-        $videos=DB::table('gallery_video')->get();
+        $teams=DB::table('team')->orderBy('seq', 'asc')->get();
+        $videos=DB::table('gallery_video')->orderBy('seq', 'asc')->limit(3)->get();
+        $galleries=DB::table('gallery')->orderBy('seq', 'asc')->limit(9)->get();
         $data=array(
            // 'welcome'=>$images,
             'videos'=>$videos,
             'packages'=>$packages,
             'slides'=>$slides,
-            'user'=>$user
+            'user'=>$user,
+            'teams'=>$teams,
+            'galleries'=>$galleries
         );
         return view('../pages/homeview',$data);
      //   return "Data";
