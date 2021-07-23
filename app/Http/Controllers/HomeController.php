@@ -25,6 +25,7 @@ class HomeController extends MailController
         $teams=DB::table('team')->orderBy('seq', 'asc')->get();
         $videos=DB::table('gallery_video')->orderBy('seq', 'asc')->limit(3)->get();
         $galleries=DB::table('gallery')->orderBy('seq', 'asc')->limit(9)->get();
+        $testies=DB::table('testimoni')->orderBy('seq', 'asc')->get();
         $data=array(
            // 'welcome'=>$images,
             'videos'=>$videos,
@@ -32,6 +33,7 @@ class HomeController extends MailController
             'slides'=>$slides,
             'user'=>$user,
             'teams'=>$teams,
+            'testimonies'=>$testies,
             'galleries'=>$galleries
         );
         return view('../pages/homeview',$data);

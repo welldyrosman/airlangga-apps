@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card mb-2 bg-gradient-dark">
-                                    <img class="card-img-top" src="{{'//localhost:3002/storage/'.$cover->path.'/'.$cover->file_nm}}"  alt="Dist Photo 1">
+                                    <img class="card-img-top" src="{{env('SERVICE_URL')+'storage/'.$cover->path.'/'.$cover->file_nm}}"  alt="Dist Photo 1">
                                     <div class="card-img-overlay d-flex flex-column justify-content-end">
                                         <h5 class="card-title text-primary text-white">{{$cover->note}}</h5>
                                     </div>
@@ -19,7 +19,7 @@
                             @foreach ($images as $image)
                                 <div class="col-sm-4">
                                     <div class="card mb-2 bg-gradient-dark">
-                                        <img class="card-img-top" src="{{'//localhost:3002/storage/'.$image->path.'/'.$image->file_nm}}"  alt="Dist Photo 1">
+                                        <img class="card-img-top" src="{{env('SERVICE_URL')+'storage/'.$image->path.'/'.$image->file_nm}}"  alt="Dist Photo 1">
                                         <div class="card-img-overlay d-flex flex-column justify-content-end">
                                             <h5 class="card-title text-primary text-white">{{$image->note}}</h5>
                                         </div>

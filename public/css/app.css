@@ -134,3 +134,14 @@ div.scrollmenu {
     background-color: #777;
   }
 
+  .cardtesti .text-justify:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+.cardtesti .text-justify:after {
+    content: "\f10e";
+    font-family: 'Fontawesome';
+    margin-left: 10px;
+}

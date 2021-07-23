@@ -16,7 +16,7 @@
                         Hot Pack
                         </div>
                     </div>
-                <img src="{{'//localhost:3002/storage/'.$pack->path.'/'.$pack->file_nm}}" class="img-fluid" alt="package-place">
+                <img src="{{env('SERVICE_URL')+'storage/'.$pack->path.'/'.$pack->file_nm}}" class="img-fluid" alt="package-place">
                 </div>
                 <div class="card-body">
                     <div class="row">

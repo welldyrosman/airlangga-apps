@@ -15,10 +15,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/ekko-lightbox/ekko-lightbox.css')}}">
-
-  <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css')}}">
+   <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="{{ asset('css/app.css')}}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3/dark.css">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

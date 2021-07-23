@@ -10,9 +10,10 @@
         <div class="carousel-inner">
             @foreach ($slides as $sl)
             <div class="{{'carousel-item '.($loop->iteration==1?'active':'')}}">
-                <img class="d-block w-100" src="{{'//localhost:3002/storage/'.$sl->photo_path.'/'.$sl->photo}}" alt="First slide">
+                <img class="d-block w-100" src="{{env('SERVICE_URL').'storage/'.$sl->photo_path.'/'.$sl->photo}}" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <br><br>
+
                     <h2>{{$sl->slide_nm}}</h2>
                     <h3>{{$sl->slide_desc}}</h3>
                   </div>
@@ -91,7 +92,7 @@
                             Hot Pack
                             </div>
                         </div>
-                    <img src="{{'//localhost:3002/storage/'.$pack->path.'/'.$pack->file_nm}}" class="img-fluid" alt="package-place">
+                    <img src="{{env('SERVICE_URL').'storage/'.$pack->path.'/'.$pack->file_nm}}" class="img-fluid" alt="package-place">
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -143,19 +144,25 @@
                 </div>
                 <div class="col-sm-3 text-center">
                     <img height="150px" width="150px" style="align-self: center;" class="img-img-thumbnail" src="{{asset('assets/dist/img/ic_why-02.png')}}"/>
-                    <h5> Testinasi Wisata Menarik yang ramah keluarga</h3>
+                    <h5> Testinasi Wisata Menarik yang ramah keluarga</h5>
+                    <small>kamu tak hanya bisa memesan tiket masuk destinasi wisata menarik dan kekinian seperti museum, waterpark, hingga destinasi yang punya spot instagramable. Namun kamu juga bisa menemukan banyak pilihan hiburan di Airlangga. Mulai dari ide aktivitas seru di akhir pekan sampai liburan ke seluruh penjuru dunia.</small>
                 </div>
                 <div class="col-sm-3 text-center">
                     <img height="150px" width="150px" style="align-self: center;" class="img-img-thumbnail" src="{{asset('assets/dist/img/ic_why-03.png')}}"/>
-                    <h5> Testinasi Wisata Menarik yang ramah keluarga</h3>
+                    <h5> Pilihan Hiburan Paling Lengkap</h5>
+                        <small>Sebelum berangkat liburan, kamu sudah bisa memesan terlebih dahulu atraksi wisata yang kamu ingin datangi di kota atau negara tujuan lewat Website Resmi Airlangga. Kamu bisa cari atraksi hingga kegiatan hiburan lainnya di kota atau negara yang dituju, pilih kegiatan yang kamu inginkan, kemudian pesan dan bayar hanya dengan modal klik di smartphone atau laptop.</small>
                 </div>
                 <div class="col-sm-3 text-center">
                     <img height="150px" width="150px" style="align-self: center;" class="img-img-thumbnail" src="{{asset('assets/dist/img/ic_why-04.png')}}"/>
-                    <h5> Testinasi Wisata Menarik yang ramah keluarga</h3>
+                    <h5> Bisa Pesan dan Bayar Kapan dan di Mana Saja</h5>
+                    <small>Bukan Traveloka Xperience namanya kalau tidak memudahkanmu untuk mendapatkan pengalaman liburan menyenangkan. Traveloka Xperience juga menghadirkan kemudahan dan keamanan terjamin saat kamu memesan tiket atraksi wisata dan hiburan lainnya.
+
+                        Salah satunya adalah kemudahan bebas memilih metode pembayaran. Kamu bisa memilih salah satu dari sekian banyak pilihan metode pembayaran. Tinggal sesuaikan saja dengan preferensimu. </small>
                 </div>
                 <div class="col-sm-3 text-center">
                     <img height="150px" width="150px" style="align-self: center;" class="img-img-thumbnail" src="{{asset('assets/dist/img/ic_why-05.png')}}"/>
-                    <h5> Testinasi Wisata Menarik yang ramah keluarga</h3>
+                    <h5> Kemudahan dan Keamanan Terjamin</h5>
+                    <small>Tak hanya itu, kamu juga bisa mendapatkan banyak promo menarik di Traveloka Xperience. Mulai dari promo potongan harga tiket masuk atraksi wisata hingga perawatan rambut dan tubuh di salon. Kamu juga bisa mendapatkan banyak promo dari bank. Untuk mendapatkan promo tersebut, klik menu ‘Promo’ di bagian atas laman traveloka.com, kemudian pilih Xperience.</small>
                 </div>
 
             </div>
@@ -166,7 +173,7 @@
         <div class="scrollmenu">
             @foreach ($teams as $team)
             <div class="conprof">
-                <img class="profile-user-img img-fluid img-circle" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
+                <img class="profile-user-img img-fluid img-circle" src="{{env('SERVICE_URL').'storage/'.$team->photo_path.'/'.$team->photo}}"/>
                 <h4>{{$team->nickname}}</h4>
                 <h6>{{$team->fullname}}</h6>
                 <h6 class="text-primary"><i class="fab fa-instagram"></i> {{$team->ig}}</h6>
@@ -207,7 +214,7 @@
                             Hot Pack
                             </div>
                         </div>
-                    <img src="{{'//localhost:3002/storage/'.$pack->path.'/'.$pack->file_nm}}" class="img-fluid" alt="package-place">
+                    <img src="{{env('SERVICE_URL').'storage/'.$pack->path.'/'.$pack->file_nm}}" class="img-fluid" alt="package-place">
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -242,16 +249,81 @@
     <div class="section-team testi text-center">
         <h1><i class="fas fa-comment"></i> Testimoni</h1>
         <br>
-        <div class="row">
-            @for ($i = 0; $i < 4; $i++)
-                <div class="col-sm-3">
-                    <div class="cardtesti">
-                        <img class="profile-user-img img-fluid img-circle" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
-                        <p><strong>Welldy</strong></p>
-                        <p class="text-justify">"Wah Asik Banget ngadain trip bareng Arilangga Tour, Guidenya ramah , Harganya Bersaing, pokoknya nyaman banget deh! :-D"</p>
-                    </div>
+        {{-- <div class='row'>
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                @foreach ($testimonies as $testi)
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{$loop->index}}" class="{{$loop->index==0?'active':''}}" aria-current="true" aria-label="Slide {{$loop->iteration}}"></button>
+                @endforeach
+
                 </div>
-            @endfor
+                <div class="carousel-inner">
+                    @foreach ($testimonies as $testi)
+                    <div class="carousel-item {{$loop->index==0?'active':''}}" data-bs-interval="10000">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="cardtesti">
+                                    <img class="profile-user-img img-fluid img-circle" style="margin-bottom: 100px;" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>{{$testi->people_name}}</h5>
+                                        <p>{{$testi->testimoni}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="cardtesti">
+                                    <img class="profile-user-img img-fluid img-circle" style="margin-bottom: 100px;" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>{{$testi->people_name}}</h5>
+                                        <p>{{$testi->testimoni}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="cardtesti">
+                                    <img class="profile-user-img img-fluid img-circle" style="margin-bottom: 100px;" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>{{$testi->people_name}}</h5>
+                                        <p>{{$testi->testimoni}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="cardtesti">
+                                    <img class="profile-user-img img-fluid img-circle" style="margin-bottom: 100px;" src="{{asset('assets/dist/img/user8-128x128.jpg')}}"/>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>{{$testi->people_name}}</h5>
+                                        <p>{{$testi->testimoni}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    @endforeach
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div> --}}
+        <div class="row">
+
+           @foreach ($testimonies as $testi)
+           <div class="col-sm-3">
+                <div class="cardtesti">
+                    <img class="profile-user-img img-fluid img-circle" src="{{env('SERVICE_URL').'storage/'.$testi->photo_path.'/'.$testi->photo}}"/>
+                    <p><strong>{{$testi->people_name}}</strong></p>
+                    <p class="text-justify">{{$testi->testimoni}}"</p>
+                </div>
+            </div>
+           @endforeach
 
         </div>
     </div>
